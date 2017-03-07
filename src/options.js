@@ -2,8 +2,8 @@ const
   parseArgv = require('minimist'),
   join = require('path').join,
   EOL = require('os').EOL,
-  padRight = (str,l) => {
-    while(str.length < l) {
+  padRight = (str, l) => {
+    while (str.length < l) {
       str += ' '
     }
     return str.substr(0, l)
@@ -40,8 +40,7 @@ const
       configure: []
     }
   }),
-  help =
-`
+  help = `
 nexe --help              CLI OPTIONS
 
   -i   --input      =/main/bundle/file.js   -- main js bundle
@@ -54,10 +53,12 @@ nexe --help              CLI OPTIONS
   -c   --configure  ="--with-dtrace"        -- *pass arguments to the configure command
   -m   --make       ="--loglevel"           -- *pass arguments to the make command
   -vc  --vcBuild    =x64                    -- *pass arguments to vcbuild.bat
-  -r   --resource                           -- *embed file bytes within binary
+  -r   --resource   =/path/to/resource      -- *embed file bytes within binary
   -d   --download   =win32-x64-X.X.X        -- use prebuilt binary (url or name)
   -s   --snapshot   =/path/to/snapshot      -- prebuild with snapshot
   -b   --bundle                             -- attempt bundling application
+       --ico
+       --rc-*                               -- populate rc file options
        --clean                              -- force download fresh sources
        --enableNodeCli                      -- enable node cli enforcement (prevents own cli)
        --log-level                          -- silent,info,verbose
@@ -65,8 +66,8 @@ nexe --help              CLI OPTIONS
                                              * option can be used more than once
 `.trim()
 
-function normalize (x) {
-  return x
+function normalize (x, defaults) {
+  return Object.assign(x || {}, defaults)
 }
 
 if (argv.help) {

@@ -1,5 +1,16 @@
 # Nexe ChangeLog
 
+## 2017-03-06, Version v2.0.0-beta.1, @calebboyd
+
+### Breaking Changes
+
+   * Bundling no longer occurs in Nexe, a bundle must be provided
+   * Made not-available require not a fatal error.
+   * Stub and system to ignore certain requires.
+   * Added 'sys' to ignore list.
+   * We have a gitter!
+   * Gave win32 a 100 length progress bar.
+
 ## 2015-02-20, Version v0.3.7, @jaredallard
 
 ### Noteable Changes
@@ -12,7 +23,7 @@
    * Gave win32 a 100 length progress bar.
 
 ### Commits
-  
+
    * [**2cacd83**] Update README.md (@crcn)
    * [**0e90ac9**] Update README.md (@crcn)
    * [**54967d1**] Added Gitter badge (@jaredallard)
@@ -35,7 +46,6 @@
    * [**ad4da1d**] Support .json extensions in require() resolution (@CKarper)
 
 ## 2015-02-14, Version v0.3.5, @jaredallard
-
 
 ### Noteable Changes
 
